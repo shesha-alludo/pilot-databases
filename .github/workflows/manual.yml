@@ -43,5 +43,6 @@ jobs:
     - name: Install Liquibase
       run: |
         chmod +x bin/fetch.sh
+        sed -i -e 's/\r$//' bin/fetch.sh
         ./bin/fetch.sh
       shell: bash
