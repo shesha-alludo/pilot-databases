@@ -51,7 +51,9 @@ jobs:
       run: |
         chmod +x bin/call_lbp.sh
         sed -i -e 's/\r$//' bin/call_lbp.sh
+        cat ./bin/call_lbp.sh
         ./bin/call_lbp.sh
+        cat ./bin/exec_lbp.sh
       shell: bash
       
       
