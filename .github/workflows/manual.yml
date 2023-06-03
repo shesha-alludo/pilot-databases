@@ -46,3 +46,12 @@ jobs:
         sed -i -e 's/\r$//' bin/fetch.sh
         ./bin/fetch.sh
       shell: bash
+    
+    - name: Populate liquibase properties
+      run: |
+        chmod +x bin/call_lbp.sh
+        sed -i -e 's/\r$//' bin/call_lbp.sh
+        ./bin/call_lbp.sh
+      shell: bash
+      
+      
