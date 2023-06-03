@@ -30,7 +30,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
-        - name: Checkout Repository
+    
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
     - name: Set up Java
