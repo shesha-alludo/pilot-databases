@@ -43,7 +43,7 @@ jobs:
     - name: Install Liquibase
       run: |
         chmod +x bin/fetch.sh
-        ./bin/fetch.sh
+        bash bin/fetch.sh
         #wget https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.5.0/liquibase-4.5.0.tar.gz
         #wget https://github.com/liquibase/liquibase/archive/refs/tags/v4.22.0.tar.gz
         #tar xf v4.22.0.tar.gz
