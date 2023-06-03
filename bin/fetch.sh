@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 set -eu -o pipefail
 
 LB_VERSION=$(cat LIQUIBASE_VERSION)
