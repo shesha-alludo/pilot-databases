@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Preparing Liquibase Properties for DB Engine - $1 and DB Name - $2"
+echo "Preparing Liquibase Properties for DB Engine - $2 and DB Name - $3 in path $1"
 
-echo driver: ${DB_DRIVER}	 	    > ./conf/$1/$2/liquibase.properties
-echo url: ${DB_JDBC_URL} 		    > ./conf/$1/$2/liquibase.properties
-echo username: ${DB_USERNAME} 	> ./conf/$1/$2/liquibase.properties
-echo password: ${DB_PASSWORD} 	> ./conf/$1/$2/liquibase.properties
-echo liquibaseSchemaName=public 		    > ./conf/$1/$2/liquibase.properties
+echo driver: ${DB_DRIVER}	 	    > $1
+echo url: ${DB_JDBC_URL} 		    > $1
+echo username: ${DB_USERNAME} 	> $1
+echo password: ${DB_PASSWORD} 	> $1
+echo liquibaseSchemaName=public > $1
