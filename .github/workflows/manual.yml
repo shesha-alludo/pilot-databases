@@ -49,4 +49,3 @@ jobs:
         #tar xf v4.22.0.tar.gz
         #rm v4.22.0.tar.gz
         pwd
-        liquibase -version
