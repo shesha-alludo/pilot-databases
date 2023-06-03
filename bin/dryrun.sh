@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-. bin/populate-liquibase-properties
+. bin/populate_liquibase_properties.sh $1 $2
 
 liquibase --defaults-file=${LIQUIBASE_PROPERTIES} --changeLogFile=${CHANGELOG} --log-level=info updateSQL
 
