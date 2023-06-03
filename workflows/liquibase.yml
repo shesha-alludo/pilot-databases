@@ -1,0 +1,49 @@
+name: Liquibase Pipeline
+on:
+  push:
+    branches:
+      - feature/initial_version
+
+env:
+  DB_URL: ${{ secrets.DB_URL }}
+  DB_USERNAME: ${{ secrets.DB_USERNAME }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+jobs:
+  liquibase:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+
+    - name: Install Liquibase
+      run: |
+        wget https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.5.0/liquibase-4.5.0.tar.gz
+        tar xf liquibase-4.5.0.tar.gz
+        rm liquibase-4.5.0.tar.gz
+        pwd
+        ls -lrth
+
+    - name: Run Liquibase Dry Run
+      run: |
+        ./liquibase --url=${{ env.DB_URL }} \
+                    --username=${{ env.DB_USERNAME }} \
+                    --password=${{ env.DB_PASSWORD }} \
+                    --changeLogFile=changelog.xml \
+                    --outputDefaultSchema=true \
+                    --logLevel=info \
+                    --liquibaseFormattedSql \
+                    updateSQL
+
+#    - name: Run Liquibase Update
+#      run: |
+#        ./liquibase --url=${{ env.DB_URL }} \
+#                    --username=${{ env.DB_USERNAME }} \
+#                    --password=${{ env.DB_PASSWORD }} \
+#                    update
