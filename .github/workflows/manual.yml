@@ -42,7 +42,8 @@ jobs:
 
     - name: Install Liquibase
       run: |
-        wget https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.5.0/liquibase-4.5.0.tar.gz
-        tar xf liquibase-4.5.0.tar.gz
-        rm liquibase-4.5.0.tar.gz
+        #wget https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.5.0/liquibase-4.5.0.tar.gz
+        wget https://github.com/liquibase/liquibase/archive/refs/tags/v4.22.0.tar.gz
+        tar xf v4.22.0.tar.gz
+        rm v4.22.0.tar.gz
         pwd
