@@ -30,3 +30,17 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
+        - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+
+    - name: Install Liquibase
+      run: |
+        wget https://github.com/liquibase/liquibase/releases/download/liquibase-parent-4.5.0/liquibase-4.5.0.tar.gz
+        tar xf liquibase-4.5.0.tar.gz
+        rm liquibase-4.5.0.tar.gz
+        pwd
