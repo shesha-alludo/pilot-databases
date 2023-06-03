@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="1" author="Liquibase-poc">
+        <tagDatabase  tag="rollback_all"/>
+    </changeSet>
+    <include file="migrations/rpt_db/schemas/schemas.sql"/>
+    <include file="migrations/rpt_db/tables/tables.sql"/>
+    <!--<includeAll path="sql_template/Budget_ExtendedMetadata/"/>-->
+    <!--<includeAll path="sql_template/ResourceMonitor/"/>-->
+</databaseChangeLog>
