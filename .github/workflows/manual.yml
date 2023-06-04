@@ -75,10 +75,18 @@ jobs:
         
       shell: bash
     
-    - name: Run liquibase
+    - name: Prepare liquibase
       run: |
         chmod +x ./bin/run_liquibase.sh
         sed -i -e 's/\r$//' ./bin/run_liquibase.sh
         ./bin/run_liquibase.sh
+        
+      shell: bash  
+    
+    - name: Run liquibase
+      run: |
+        chmod +x ./bin/lb_prep.sh
+        sed -i -e 's/\r$//' ./bin/lb_prep.sh
+        ./bin/lb_prep.sh
       shell: bash  
       
