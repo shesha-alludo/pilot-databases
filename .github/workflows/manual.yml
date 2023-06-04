@@ -67,9 +67,9 @@ jobs:
         response = client.get_secret_value(SecretId='dev/aurora-pg/pg1/postgres')
         secret_value = response['SecretString']
         secrets = json.loads(secret_value)
-        print(secrets[host])
-        print(secrets[username])
-        print(secrets[password])
+        print(secrets['host'])
+        print(secrets['username'])
+        print(secrets['password'])
         EOF
 
 
