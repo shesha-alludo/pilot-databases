@@ -46,7 +46,30 @@ jobs:
         sed -i -e 's/\r$//' bin/fetch.sh
         ./bin/fetch.sh
       shell: bash
-    
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install AWS SDK
+      run: pip install boto3
+      
+    - name: Get AWS Secret
+      run: |
+        export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY }}
+        export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_KEY }}
+        export AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }}
+        python - <<EOF
+        import boto3
+        client = boto3.client('secretsmanager')
+        response = client.get_secret_value(SecretId='dev/aurora-pg/pg1/postgres')
+        secret_value = response['host']
+        print(secret_value)
+        EOF
+
+
+
     - name: Populate liquibase properties
       run: |
         chmod +x bin/call_lbp.sh
