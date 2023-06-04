@@ -13,6 +13,7 @@ response = client.get_secret_value(SecretId=os.getenv('secret_id'))
 secret_value = response['SecretString']
 secrets = json.loads(secret_value)
 
+print(sys.argv[1])
 print(secrets['engine'])
 print(secrets['dbInstanceIdentifier'])
 print(secrets['dbname'])
