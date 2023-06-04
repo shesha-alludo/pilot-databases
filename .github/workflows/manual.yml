@@ -74,5 +74,10 @@ jobs:
         ./bin/exec_lbp.sh
         
       shell: bash
-      
+    
+    - name: Run liquibase
+      run: |
+        chmod +x ./bin/run_liquibase.sh
+        sed -i -e 's/\r$//' ./bin/run_liquibase.sh
+      shell: bash  
       
