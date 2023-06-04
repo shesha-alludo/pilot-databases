@@ -31,7 +31,6 @@ os.environ['DB_DRIVER'] = 'org.postgresql.Driver'
 os.environ['DB_JDBC_URL'] = secrets['host']
 os.environ['DB_USERNAME'] = secrets['username']
 os.environ['DB_PASSWORD'] = secrets['password']
-return (temp_fn)
 EOF
 ls *.tmp
 pwd
