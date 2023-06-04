@@ -62,7 +62,7 @@ jobs:
         export AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }}
         
         chmod +x bin/get_secrets.py
-        python bin/get_secrets.py --arg1 'dev/aurora-pg/pg1/postgres'
+        python bin/get_secrets.py --arg1 "dev/aurora-pg/pg1/postgres"
         
         chmod +x bin/call_lbp.sh
         sed -i -e 's/\r$//' bin/call_lbp.sh
