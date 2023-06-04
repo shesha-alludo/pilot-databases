@@ -4,30 +4,27 @@ echo "Preparing Liquibase Properties for DB Engine - $2 and DB Name - $3 in path
 
 export secret_id="dev/aurora-pg/pg1/postgres"
 
-python - <<EOF
+function sk {
+PYTHON_ARG="$1" python - <<END
+import os
 import boto3
 import json
-import os
-import sys
+
 client = boto3.client('secretsmanager')
 response = client.get_secret_value(SecretId=os.getenv('secret_id'))
 secret_value = response['SecretString']
 secrets = json.loads(secret_value)
+skv = os.environ['PYTHON_ARG']
+return secrets['skv']
+END
+}
 
-print(sys.argv[1])
-print(secrets['engine'])
-print(secrets['dbInstanceIdentifier'])
-print(secrets['dbname'])
-print(secrets['host'])
-print(secrets['username'])
-print(secrets['password'])
-
-engine = secrets['engine']
-dbInstanceIdentifier = secrets['dbInstanceIdentifier']
-dbname = secrets['dbname']
-host = "jdbc:postgresql://"+secrets['host']+":5432/postgres"
-username = secrets['username']
-password = secrets['password']
+engine = sk 'engine'
+dbInstanceIdentifier = sk 'dbInstanceIdentifier'
+dbname = sk 'dbname'
+host = "jdbc:postgresql://"+sk 'host'+":5432/postgres"
+username = sk 'username' 
+password = sk 'password'
 
 temp_fn = secrets['engine']+"_"+secrets['dbInstanceIdentifier']+"_"+secrets['dbname']+".tmp"
 file = open(temp_fn,"w")
