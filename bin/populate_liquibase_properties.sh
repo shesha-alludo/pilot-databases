@@ -4,8 +4,6 @@ echo "Preparing Liquibase Properties for DB Engine - $2 and DB Name - $3 in path
 
 export secret_id="dev/aurora-pg/pg1/postgres"
 
-python get_secrets.py $1 $secret_id
+python ./bin/get_secrets.py $1 $secret_id
 
 cat $1
-ls *.tmp
-pwd
