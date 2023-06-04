@@ -62,6 +62,7 @@ jobs:
         export AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }}
         python - <<EOF
         import boto3
+        import json
         client = boto3.client('secretsmanager')
         response = client.get_secret_value(SecretId='dev/aurora-pg/pg1/postgres')
         secret_value = response['SecretString']
