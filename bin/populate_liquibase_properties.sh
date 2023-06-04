@@ -12,16 +12,27 @@ client = boto3.client('secretsmanager')
 response = client.get_secret_value(SecretId=os.getenv('secret_id'))
 secret_value = response['SecretString']
 secrets = json.loads(secret_value)
+
+print(secrets['engine'])
+print(secrets['dbInstanceIdentifier'])
+print(secrets['dbname'])
 print(secrets['host'])
 print(secrets['username'])
 print(secrets['password'])
+
+temp_fn = secrets['engine']_secrets['dbInstanceIdentifier']_secrets['dbname'].tmp
+file = open(temp_fn,"w")
+
+L = ["driver: org.postgresql.Driver\n","url: secrets['host']\n","username: secrets['username']\n","password: secrets['password']\n"]
+file.writelines(L)
+file.close()
 
 os.environ['DB_DRIVER'] = 'org.postgresql.Driver'
 os.environ['DB_JDBC_URL'] = secrets['host']
 os.environ['DB_USERNAME'] = secrets['username']
 os.environ['DB_PASSWORD'] = secrets['password']
 EOF
-
+ls *.tmp
 
 echo driver: ${DB_DRIVER}	 	    > $1
 echo url: ${DB_JDBC_URL} 		    >> $1
