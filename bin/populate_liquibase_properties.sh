@@ -23,7 +23,7 @@ print(secrets['password'])
 engine = secrets['engine']
 dbInstanceIdentifier = secrets['dbInstanceIdentifier']
 dbname = secrets['dbname']
-host = secrets['host']
+host = "jdbc:postgresql://"+secrets['host']+":5432/postgres"
 username = secrets['username']
 password = secrets['password']
 
