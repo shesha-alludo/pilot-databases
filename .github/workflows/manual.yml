@@ -65,10 +65,10 @@ jobs:
         client = boto3.client('secretsmanager')
         response = client.get_secret_value(SecretId='dev/aurora-pg/pg1/postgres')
         secret_value = response['SecretString']
-        #secrets = json.loads(secret_value)
-        print(secret_value[host])
-        print(secret_value[username])
-        print(secret_value[password])
+        secrets = json.loads(secret_value)
+        print(secrets[host])
+        print(secrets[username])
+        print(secrets[password])
         EOF
 
 
