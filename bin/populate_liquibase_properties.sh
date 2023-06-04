@@ -19,12 +19,12 @@ return secrets['skv']
 END
 }
 
-engine = sk 'engine'
-dbInstanceIdentifier = sk 'dbInstanceIdentifier'
-dbname = sk 'dbname'
-host = "jdbc:postgresql://"+sk 'host'+":5432/postgres"
-username = sk 'username' 
-password = sk 'password'
+engine = sk "engine"
+dbInstanceIdentifier = sk "dbInstanceIdentifier"
+dbname = sk "dbname"
+host = "jdbc:postgresql://"+sk "host"+":5432/postgres"
+username = sk "username"
+password = sk "password"
 
 temp_fn = secrets['engine']+"_"+secrets['dbInstanceIdentifier']+"_"+secrets['dbname']+".tmp"
 file = open(temp_fn,"w")
