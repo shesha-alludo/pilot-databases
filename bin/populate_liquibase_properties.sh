@@ -8,6 +8,7 @@ python - <<EOF
 import boto3
 import json
 import os
+import sys
 client = boto3.client('secretsmanager')
 response = client.get_secret_value(SecretId=os.getenv('secret_id'))
 secret_value = response['SecretString']
