@@ -12,4 +12,4 @@ file.write("driver: org.postgresql.Driver\n")
 file.write("username: "+secrets['username']+"\n")
 file.write("password: "+secrets['password']+"\n")
 file.write("url: jdbc:postgresql://"+secrets['host']+":"+str(secrets['port'])+"/"+sys.argv[5]+"\n")
-file.cl)o
+file.close
