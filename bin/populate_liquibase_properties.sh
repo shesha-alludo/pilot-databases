@@ -20,10 +20,17 @@ print(secrets['host'])
 print(secrets['username'])
 print(secrets['password'])
 
+engine = secrets['engine']
+dbInstanceIdentifier = secrets['dbInstanceIdentifier']
+dbname = secrets['dbname']
+host = secrets['host']
+username = secrets['username']
+password = secrets['password']
+
 temp_fn = secrets['engine']+"_"+secrets['dbInstanceIdentifier']+"_"+secrets['dbname']+".tmp"
 file = open(temp_fn,"w")
 
-L = ["driver: org.postgresql.Driver\n","url: secrets['host']\n","username: secrets['username']\n","password: secrets['password']\n"]
+L = ["driver: org.postgresql.Driver\n","url: "+ host +"\n","username: "+ username  +"\n","password: "+ password +"\n"]
 file.writelines(L)
 file.close()
 
