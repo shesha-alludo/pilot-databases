@@ -64,7 +64,7 @@ jobs:
         import boto3
         client = boto3.client('secretsmanager')
         response = client.get_secret_value(SecretId='dev/aurora-pg/pg1/postgres')
-        secret_value = response['host']
+        secret_value = response['SecretString']
         print(secret_value)
         EOF
 
