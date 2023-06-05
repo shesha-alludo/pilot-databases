@@ -6,5 +6,5 @@
     <changeSet id="1" author="Liquibase-poc">
         <tagDatabase  tag="rollback_all"/>
     </changeSet>
-    <include file="migrations/postgres/databases/databases.sql"/>
+    <include file="migrations/postgres/postgres/databases/databases.sql"/>
 </databaseChangeLog>
