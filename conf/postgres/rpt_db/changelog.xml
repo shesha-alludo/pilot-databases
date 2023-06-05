@@ -6,8 +6,8 @@
     <changeSet id="1" author="Liquibase-poc">
         <tagDatabase  tag="rollback_all"/>
     </changeSet>
-    <include file="migrations/rpt_db/schemas/schemas.sql"/>
-    <include file="migrations/rpt_db/tables/tables.sql"/>
+    <include file="migrations/postgres/rpt_db/schemas/schemas.sql"/>
+    <include file="migrations/postgres/rpt_db/tables/tables.sql"/>
     <!--<includeAll path="sql_template/Budget_ExtendedMetadata/"/>-->
     <!--<includeAll path="sql_template/ResourceMonitor/"/>-->
 </databaseChangeLog>
