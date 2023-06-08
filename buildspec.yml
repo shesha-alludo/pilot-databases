@@ -10,9 +10,9 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - echo "Installing Liquibase..."
-      - chmod +x bin/fetch.sh
-      - ./bin/fetch.sh
+      - echo "Installing Liquibase...$LB_VERSION"
+      - chmod +x $CODEBUILD_SRC_DIR/bin/fetch.sh
+      - .$CODEBUILD_SRC_DIR/bin/fetch.sh
       - export PATH=$PATH:$PWD/liquibase
       - chmod +x liquibase
   pre_build:
