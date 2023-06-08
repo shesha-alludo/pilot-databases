@@ -9,10 +9,11 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - LB_VERSION=$(cat LIQUIBASE_VERSION)
-      - echo "Installing Liquibase...$LB_VERSION"
-      - chmod +x ./bin/fetch.sh
-      - ./bin/fetch.sh
+      - export LB_VERSION=$(cat LIQUIBASE_VERSION)
+      - echo "Installing Liquibase..."
+      - echo $LB_VERSION
+      - curl -o liquibase.zip -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
+      - unzip -qq -o -d liquibase liquibase.zip
       - export PATH=$PATH:$PWD/liquibase
       - chmod +x liquibase
   pre_build:
