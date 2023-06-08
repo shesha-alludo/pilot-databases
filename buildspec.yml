@@ -3,8 +3,13 @@ version: 0.2
 env:
   #secrets-manager:
   RDS_HOST: "dev/aurora-pg/pg1/postgres:host"
-
+ 
 phases:
+  Install:
+	  runtime-versions:
+	    - java: corretto11
+	    - python: 3.8
+	    - liquibase: 4.21.1
   pre_build:
     commands:
       - echo $RDS_HOST:latest
