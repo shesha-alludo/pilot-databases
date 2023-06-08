@@ -7,9 +7,9 @@ env:
 phases:
   Install:
 	  runtime-versions:
-	    - java: corretto11
-	    - python: 3.8
-	    - liquibase: 4.21.1
+	    java: corretto11
+	    python: 3.8
+	    liquibase: 4.21.1
   pre_build:
     commands:
       - echo $RDS_HOST:latest
