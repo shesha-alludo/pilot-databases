@@ -17,6 +17,7 @@ phases:
       - export PATH=$PATH:$PWD/liquibase
       - chmod +x liquibase
       - liquibase -version
+      - echo $PATH
   pre_build:
     commands:
       - echo $RDS_HOST:latest
