@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-  secrets-manager:
-    RDS_HOST: "dev/aurora-pg/pg1/postgres:host"
+  #secrets-manager:
+  RDS_HOST: "dev/aurora-pg/pg1/postgres:host"
 
 phases:
   pre_build:
