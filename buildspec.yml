@@ -1,7 +1,7 @@
 version: 0.2
 
 env:
-  LB_VERSION=$(cat LIQUIBASE_VERSION)
+  LB_VERSION: $(cat LIQUIBASE_VERSION)
   #secrets-manager:
   RDS_HOST: "dev/aurora-pg/pg1/postgres:host"
  
