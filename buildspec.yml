@@ -16,4 +16,4 @@ phases:
     commands:
       - echo build completed on $(date)
 artifacts:
-  files: imagedefinitions.json
+  #files: imagedefinitions.json
