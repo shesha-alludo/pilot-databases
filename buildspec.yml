@@ -1,24 +1,9 @@
----
 version: 0.2
+
 phases:
   install:
-    runtime-versions:
-      java: corretto17
     commands:
-      - export LB_VERSION=$(cat LIQUIBASE_VERSION)
-      - echo "Installing Liquibase..."
-      - echo $LB_VERSION
-      - curl -o liquibase.zip -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
-      - unzip -qq -o -d liquibase liquibase.zip
-      - export PATH=$PATH:$PWD/liquibase
-      - chmod +x liquibase
-      - liquibase -version
-  pre_build:
-    commands:
-      - aws --version
+      - echo "Installing dependencies..."
   build:
     commands:
-      - echo build started on $(date)
-  post_build:
-    commands:
-      - echo build completed on $(date)
+      - echo "Building the project..."
