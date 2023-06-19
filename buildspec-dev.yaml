@@ -1,0 +1,11 @@
+version: 0.2
+
+env:
+  variables:
+    account: "Data Enablement DEV"
+    
+batch:
+  fast-fail: true
+  build-list:
+    - identifier: de_shared_postgresql_dev
+      buildspec: shared/de-shared-postgresql/de-shared-postgresql-dev.yaml
