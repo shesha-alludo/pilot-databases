@@ -8,4 +8,4 @@ batch:
   fast-fail: true
   build-list:
     - identifier: de_shared_postgresql_dev
-      buildspec: shared/de-shared-postgresql/de-shared-postgresql-dev.yaml
+      buildspec: pilot-databases/migrations/postgres/de-shared-postgresql-dev.yaml
